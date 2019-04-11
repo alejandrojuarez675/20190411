@@ -2,15 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopiarMaterial : MonoBehaviour {
+public class CopiarMaterial : MonoBehaviour
+{
+    public string Piso;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnCollisionEnter(Collision other)
+    {
+
+        if (other.gameObject.name != this.Piso)
+        {
+            this.transform.GetChild(0).GetComponent<Renderer>().material = other.gameObject.GetComponent<Renderer>().material;
+        }
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
